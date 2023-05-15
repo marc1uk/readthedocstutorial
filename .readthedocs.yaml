@@ -8,8 +8,8 @@ build:
 sphinx:
   fail_on_warning: true
 
-# Install our python package before building the docs
 python:
+  # Install our python package before building the docs
   install:
-    -method: pip
-    path: .
+    - method: pip
+      path: .
