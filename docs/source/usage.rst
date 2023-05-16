@@ -21,17 +21,25 @@ Class descriptions are created with a fairly intuitive struct-like syntax as fol
    An abstract base class that all User Tools must derive from
 
 .. cpp:class:: DemoTool : public Tool
+
    A demonstration tool, showing minimal overrides that must be defined by the user.
    
 .. cpp:function:: bool DemoTool::Initialise(std::string configfile, DataModel& datamodel)
-.. cpp:var:: std::string configfile
-.. cpp:var:: DataModel& datamodel
-.. cpp:member:: DataModel DemoTool::m_data
-   
+
    The :cpp:func:`DemoTool::Initialise` function configures the demonstration tool, reading the contents of the :cpp:var:`DemoTool.Initialise.configfile`
    into a :cpp:class:`Store` object, which can hold any kind of ASCII-representable data type.
    The input :cpp:class`DataModel` is used to initialise the :cpp:member:`m_data` member. All :cpp:class:`Tool` instances share the same :cpp:class:`DataModel`
    instance, so this may be used as a means to pass data between Tools. 
+   
+   :param configfile: a text file containing configuration option key-value pairs
+   :type configfile: std::string
+   :parameter datamodel: a reference to the ToolChain DataModel, shared by all Tools.
+   :type configfile: DataModel&
+   :returns: a boolean indicating whether errors were encountered during Initialisation
+   :throws: none. Any unhandled exceptions thrown by the Tool will be caught by the ToolChain, which may be configured to terminate on or ignore such occurrances.
+   
+.. cpp:member:: DataModel DemoTool::m_data
+   
 
 
 Describing functions
