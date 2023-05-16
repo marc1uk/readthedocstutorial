@@ -18,6 +18,7 @@ Describing C++ classes
 Class descriptions are created with a fairly intuitive struct-like syntax as follows:
 
 .. cpp:class:: Tool
+
    An abstract base class that all User Tools must derive from
 
 .. cpp:class:: DemoTool : public Tool
